@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.sjoraet.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "UseBlockMixinServer"
+  ],
+  "client": [
+    "UseBlockMixinClient"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

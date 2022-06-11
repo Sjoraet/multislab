@@ -14,6 +14,5 @@ class MultiSlabModClient: ClientModInitializer {
         BlockEntityRendererRegistry.register(Entities.MULTISLAB_BLOCK_ENTITY) { _ ->
             MultiSlabRenderer()
         }
-        BlockEntityRendererFactories.
     }
 }
