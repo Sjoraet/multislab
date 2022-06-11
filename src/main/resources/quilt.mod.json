@@ -1,0 +1,24 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "com.sjoraet",
+		"id": "multislab",
+		"version": "${version}",
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": [{
+				"adapter": "kotlin",
+				"value": "com.sjoraet.MultiSlabMod"
+			}],
+			"client_init": [{
+				"adapter": "kotlin",
+				"value": "com.sjoraet.MultiSlabModClient"
+			}]
+		},
+		"depends": [
+			{ "id": "quilt_loader", "versions": ">=0.17.0-" },
+			{ "id": "fabric-language-kotlin", "versions": ">=1.7.4+kotlin.1.6.21" },
+			{ "id": "minecraft", "versions": ">=1.18.2" }			
+		]
+	}
+}

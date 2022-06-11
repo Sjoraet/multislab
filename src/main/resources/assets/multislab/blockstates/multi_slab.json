@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "multislab:block/multi_slab"
+    }
+  }
+}
