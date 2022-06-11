@@ -19,7 +19,7 @@ import org.quiltmc.qsl.base.api.event.Event
 
 class MultiSlabMod : ModInitializer {
     companion object {
-        val MODID = "multislab";
+        const val MODID = "multislab";
     }
     override fun onInitialize(mod: ModContainer?) {
         Blocks.init();
