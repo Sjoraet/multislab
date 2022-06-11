@@ -1,5 +1,6 @@
 package com.sjoraet.mixin;
 
+import com.sjoraet.util.UseBlockMixin;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;

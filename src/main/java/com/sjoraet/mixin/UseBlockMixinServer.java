@@ -1,5 +1,6 @@
 package com.sjoraet.mixin;
 
+import com.sjoraet.util.UseBlockMixin;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;

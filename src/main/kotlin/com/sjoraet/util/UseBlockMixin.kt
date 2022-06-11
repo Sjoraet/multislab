@@ -1,4 +1,4 @@
-package com.sjoraet.mixin
+package com.sjoraet.util
 
 import com.sjoraet.block.Blocks
 import com.sjoraet.block.entity.MultiSlabBlockEntity

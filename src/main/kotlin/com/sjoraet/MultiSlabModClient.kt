@@ -11,8 +11,5 @@ import org.quiltmc.qsl.command.impl.client.ClientInitializer
 
 class MultiSlabModClient: ClientModInitializer {
     override fun onInitializeClient(mod: ModContainer?) {
-        BlockEntityRendererRegistry.register(Entities.MULTISLAB_BLOCK_ENTITY) { _ ->
-            MultiSlabRenderer()
-        }
     }
 }
