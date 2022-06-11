@@ -16,11 +16,14 @@ class UseBlockMixin {
     companion object {
         fun handle(player: PlayerEntity, world: World, hand: Hand, hitResult: BlockHitResult): ActionResult {
             var blockPos = hitResult.blockPos;
+            if (world.getBlockState(blockPos).block !is SlabBlock) {
+                blockPos = hitResult.blockPos.offset(hitResult.side);
+            }
+
             var state = world.getBlockState(blockPos);
             var groundBlock = state.block;
             var handStack = player.getStackInHand(hand);
             var handBlock = Block.getBlockFromItem(handStack.item);
-
             if (groundBlock is SlabBlock && handBlock is SlabBlock && groundBlock != handBlock && state.get(Properties.SLAB_TYPE) != SlabType.DOUBLE) {
                 world.setBlockState(blockPos, Blocks.MULTI_SLAB.second.defaultState);
                 if (state.get(Properties.SLAB_TYPE) == SlabType.TOP) {
@@ -29,6 +32,10 @@ class UseBlockMixin {
                 } else {
                     (world.getBlockEntity(blockPos) as MultiSlabBlockEntity).topBlockId = Block.getRawIdFromState(handBlock.defaultState.with(Properties.SLAB_TYPE, SlabType.BOTTOM));
                     (world.getBlockEntity(blockPos) as MultiSlabBlockEntity).bottomBlockId = Block.getRawIdFromState(state)
+                }
+
+                if (!player.isCreative) {
+                    handStack.decrement(1);
                 }
 
                 return ActionResult.SUCCESS;
