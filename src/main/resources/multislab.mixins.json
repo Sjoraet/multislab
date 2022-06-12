@@ -9,7 +9,9 @@
   ],
   "client": [
     "BlockEntityRendererMixin",
-    "UseBlockMixinClient"
+    "UseBlockMixinClient",
+    "BreakMixin",
+    "ParticleManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
