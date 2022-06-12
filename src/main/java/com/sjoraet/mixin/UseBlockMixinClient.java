@@ -25,10 +25,8 @@ public class UseBlockMixinClient {
     @Shadow
     private ClientPlayNetworkHandler networkHandler;
 
-    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getStackInHand(Lnet/minecraft/util/Hand;)Lnet/minecraft/item/ItemStack;", ordinal = 0), method = "interactBlock", cancellable = true)
+    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getMainHandStack()Lnet/minecraft/item/ItemStack;", ordinal = 0), method = "interactBlock", cancellable = true)
     public void interactBlock(ClientPlayerEntity player, ClientWorld world, Hand hand, BlockHitResult blockHitResult, CallbackInfoReturnable<ActionResult> info) {
-        System.out.println("FOO");
-
         ActionResult result = UseBlockMixin.Companion.handle(player, world, hand, blockHitResult);
 
         if (result != ActionResult.PASS) {

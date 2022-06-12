@@ -18,10 +18,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ServerPlayerInteractionManager.class)
 public class UseBlockMixinServer {
 
-    @Inject(at = @At("HEAD"), method = "interactBlock", cancellable = true)
+    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;getMainHandStack()Lnet/minecraft/item/ItemStack;", ordinal = 0), method = "interactBlock", cancellable = true)
     public void interactBlock(ServerPlayerEntity player, World world, ItemStack stack, Hand hand, BlockHitResult blockHitResult, CallbackInfoReturnable<ActionResult> info) {
-        System.out.println("FOO");
-
         ActionResult result = UseBlockMixin.Companion.handle(player, world, hand, blockHitResult);
         if (result != ActionResult.PASS) {
             info.setReturnValue(result);
