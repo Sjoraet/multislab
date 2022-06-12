@@ -24,11 +24,6 @@ public class BlockEntityRendererMixin {
     @Final
     private static Map<BlockEntityType<?>, BlockEntityRendererFactory<?>> FACTORIES;
 
-    @Inject(at = @At("RETURN"), method = "<clinit>*")
-    private static void init(CallbackInfo ci) {
-        BlockEntityRendererRegistryImpl.setup(((t, factory) -> FACTORIES.put(t, factory)));
-    }
-
     private static <T extends BlockEntity> void register(BlockEntityType<? extends T> type, BlockEntityRendererFactory<T> factory) {
         FACTORIES.put(type, factory);
     }
